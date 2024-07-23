@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 import os
 from pathlib import Path
-from dotenv import load_dotenv
+
 from models.text_to_desc import textDescModel
 from g4f.client import Client 
 from g4f.Provider.GeminiPro import GeminiPro 
@@ -13,12 +13,9 @@ from sqlalchemy.orm import Session
 from models.user import Users
 from fastapi.encoders import jsonable_encoder
 from utils.imagegen import extract_json,generate_images_from_json
-router = APIRouter()
-load_dotenv()
+from database.config import GEMINI_API_KEY
 
-gemini_api_key = os.getenv("GEMINI_API_KEY")
-
-client = Client(provider=GeminiProChat,api_key=gemini_api_key)
+client = Client(provider=GeminiProChat,api_key=GEMINI_API_KEY)
 
 # def textToDesc(request: textDescModel,db: Session = Depends(get_db),user: Users = Depends(JWTBearer())):
 def textToDesc(request: textDescModel):

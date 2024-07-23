@@ -1,0 +1,9 @@
+venv
+venv/
+env
+env/
+*.pyc
+backend/env
+backend/env/
+backend/venv
+backend/venv/

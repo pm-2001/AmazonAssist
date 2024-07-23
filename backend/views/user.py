@@ -1,13 +1,15 @@
 
 from DTO.userRequest import AuthRequestDTO
 from DTO.userResponse import LoginResponseDTO
-
+from models.user import Users
 from datetime import datetime,timedelta
 from dotenv import load_dotenv
 import os
 from google.oauth2 import id_token
 from google.auth.transport import requests
 import jwt
+from sqlalchemy.orm import Session
+from database.config import JWT_SECRET,GOOGLE_CLIENT_ID
 
 
 def gLogin(authRequestDTO: AuthRequestDTO, db: Session):
