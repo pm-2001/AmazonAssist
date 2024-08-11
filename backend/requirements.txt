@@ -34,7 +34,7 @@ fastapi==0.111.0
 fastapi-cli==0.0.4
 Flask==3.0.3
 frozenlist==1.4.1
-g4f==0.3.2.0
+g4f==0.3.2.2
 google-auth==2.30.0
 greenlet==3.0.3
 h11==0.14.0

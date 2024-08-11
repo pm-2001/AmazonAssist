@@ -2,12 +2,8 @@ from fastapi import FastAPI, APIRouter, Depends, status, File, UploadFile, HTTPE
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 import requests
-import json
-import shutil
-import re
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 from models.text_to_desc import textDescModel
 from g4f.client import Client 
 from g4f.Provider.GeminiPro import GeminiPro 
@@ -15,8 +11,6 @@ from g4f.Provider.GeminiProChat import GeminiProChat
 from database.dbconnect import get_db,Base
 from sqlalchemy.orm import Session
 from models.user import Users
-from authUtils.JWTBearer import JWTBearer
-from PIL import Image
 import io
 from fastapi.encoders import jsonable_encoder
 import time

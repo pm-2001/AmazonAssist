@@ -1,13 +1,10 @@
 from fastapi import FastAPI, APIRouter, Depends, status, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-import requests
-import json
 import shutil
 import re
 import os
 from pathlib import Path
-from dotenv import load_dotenv
 from models.text_to_desc import textDescModel
 from g4f.client import Client 
 from g4f.Provider.GeminiPro import GeminiPro 
@@ -15,8 +12,6 @@ from g4f.Provider.GeminiProChat import GeminiProChat
 from database.dbconnect import get_db,Base
 from sqlalchemy.orm import Session
 from models.user import Users
-from authUtils.JWTBearer import JWTBearer
-from PIL import Image
 import io
 from fastapi.encoders import jsonable_encoder
 import time
@@ -26,8 +21,6 @@ import tempfile
 import moviepy.editor as mp
 import speech_recognition as sr
 from models.history import Historys
-from pydub import AudioSegment
-import yt_dlp
 from database.config import GEMINI_API_KEY,HUUGINGFACE_API_KEY,HUGGINGFACE_SPEECH_TO_TEXT_API_URL
 from utils.imagegen import extract_json,generate_images_from_json
 

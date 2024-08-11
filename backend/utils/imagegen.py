@@ -7,26 +7,19 @@ import json
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from models.text_to_desc import textDescModel
+
 from g4f.client import Client 
 from g4f.Provider.GeminiPro import GeminiPro 
 from g4f.Provider.GeminiProChat import GeminiProChat
 from database.dbconnect import get_db,Base
 from sqlalchemy.orm import Session
 from models.user import Users
-from PIL import Image
 import io
-from fastapi.encoders import jsonable_encoder
 import time
-from g4f.Provider.FreeChatgpt import FreeChatgpt
 import boto3
-import tempfile
-import moviepy.editor as mp
 import speech_recognition as sr
 from models.history import Historys
-from pydub import AudioSegment
 from utils.s3upload import s3fileUpload
-from utils.imagegen import extract_json,generate_images_from_json
 router = APIRouter()
 load_dotenv()
 

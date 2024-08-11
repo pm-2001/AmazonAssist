@@ -1,5 +1,5 @@
 from fastapi import FastAPI,APIRouter,Depends
-from dto.userRequest import AuthRequestDTO
+from DTO.userRequest import AuthRequestDTO
 from sqlalchemy.orm import Session
 from database.dbconnect import get_db
 from views.user import createUser
